@@ -1,13 +1,8 @@
 package com.doggo.molly.breadboard.fragment;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -23,6 +18,7 @@ import com.doggo.molly.breadboard.BreadboardApplication;
 import com.doggo.molly.breadboard.R;
 import com.doggo.molly.breadboard.activity.BaseActivity;
 import com.doggo.molly.breadboard.api.RestClient;
+import com.doggo.molly.breadboard.manager.UserManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -264,6 +260,10 @@ public abstract class BaseFragment extends Fragment {
 
     protected RestClient getRestClient() {
         return getApplication().getRestClient();
+    }
+
+    protected UserManager getUserManager() {
+        return getApplication().getUserManager();
     }
 
     protected BreadboardApplication getApplication() {

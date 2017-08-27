@@ -2,11 +2,13 @@ package com.doggo.molly.breadboard.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * @author Abhishek Vadnerkar
  */
 
-public class AppAccessToken {
+public class AppAccessToken implements Serializable {
     @SerializedName("access_token")
     String accessToken;
     @SerializedName("expires_in")

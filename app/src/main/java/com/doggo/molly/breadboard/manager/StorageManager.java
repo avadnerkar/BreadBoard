@@ -23,6 +23,7 @@ public class StorageManager {
             oos = new ObjectOutputStream(fis);
             oos.writeObject(object);
         } catch (Exception e) {
+            e.printStackTrace();
             Log.e(TAG, "Unable to write to local storage");
         } finally {
             try {

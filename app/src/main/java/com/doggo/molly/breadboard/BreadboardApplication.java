@@ -25,5 +25,7 @@ public class BreadboardApplication extends Application {
         return restClient;
     }
 
-
+    public UserManager getUserManager() {
+        return userManager;
+    }
 }

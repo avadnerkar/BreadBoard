@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.doggo.molly.breadboard.R;
+import com.doggo.molly.breadboard.model.AppAccessToken;
 
 /**
  * @author Abhishek Vadnerkar
@@ -25,18 +26,6 @@ public class HomeFragment extends BaseFragment implements OnClickListener {
 
     @Override
     public void onClick(View view) {
-//        Call<AppAccessToken> call = getRestClient().getAuthService().getAuthToken(new AuthData(getActivity()));
-//        call.enqueue(new Callback<AppAccessToken>() {
-//            @Override
-//            public void onResponse(Call<AppAccessToken> call, Response<AppAccessToken> response) {
-//                int c = 1;
-//            }
-//
-//            @Override
-//            public void onFailure(Call<AppAccessToken> call, Throwable t) {
-//                int c = 1;
-//            }
-//        });
-        showErrorMessage("Test message");
+        AppAccessToken appAccessToken = getUserManager().getAppAuthorization(getActivity());
     }
 }
