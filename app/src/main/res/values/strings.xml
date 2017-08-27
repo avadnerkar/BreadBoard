@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BreadBoard</string>
+    <string name="base_url" translatable="false">http://localhost:8080/</string>
+    <string name="base_auth_url" translatable="false">https://dog-park.auth0.com/</string>
+    <string name="client_id" translatable="false">1kcmxY8XxvDYtDn4tt0jLCr2r4Nht421</string>
+    <string name="client_secret" translatable="false">H0m3tddUHsqy5Sd_hLE9GiWxVn9kVdjsGxpRkU9AzwIxZ5j6JHq1uruOUlyCQrDo</string>
+    <string name="grant_type" translatable="false">client_credentials</string>
+    <string name="audience" translatable="false">https://breadboardapi2.dog-park.com</string>
+    <string name="make_request">Make Request</string>
+    <string name="close">Close</string>
+    <string name="no_internet_message">Check your internet connection</string>
+    <string name="generic_error_message">Oops! Something went wrong</string>
+</resources>
