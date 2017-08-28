@@ -16,4 +16,20 @@ public class AppAccessToken implements Serializable {
     String scope;
     @SerializedName("token_type")
     String tokenType;
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public long getExpiresIn() {
+        return expiresIn;
+    }
+
+    public String getScope() {
+        return scope;
+    }
+
+    public String getTokenType() {
+        return tokenType;
+    }
 }

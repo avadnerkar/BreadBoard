@@ -1,8 +1,8 @@
 package com.doggo.molly.breadboard.api;
 
-import android.content.Context;
 import android.support.annotation.StringRes;
 
+import com.doggo.molly.breadboard.BreadboardApplication;
 import com.doggo.molly.breadboard.BuildConfig;
 import com.doggo.molly.breadboard.R;
 import com.google.gson.Gson;
@@ -29,7 +29,7 @@ public class RestClient {
     private ApiService apiService;
     private AuthService authService;
 
-    public RestClient(Context context) {
+    public RestClient(BreadboardApplication application) {
         /*
           Gson Builder is used to convert the JSON data to Java objects and vice-versa.
           Date format converts date from UTC to local time.
@@ -37,8 +37,8 @@ public class RestClient {
         gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
                 .create();
-        apiService = (ApiService) createAPIService(context, ServiceType.API);
-        authService = (AuthService) createAPIService(context, ServiceType.AUTH);
+        apiService = (ApiService) createAPIService(application, ServiceType.API);
+        authService = (AuthService) createAPIService(application, ServiceType.AUTH);
     }
 
     /**
@@ -48,8 +48,8 @@ public class RestClient {
      *
      */
 
-    private Object createAPIService(Context context, ServiceType type) {
-        String baseUrl = context.getString(type.baseUrlId);
+    private Object createAPIService(final BreadboardApplication application, ServiceType type) {
+        String baseUrl = application.getString(type.baseUrlId);
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
@@ -57,6 +57,10 @@ public class RestClient {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Headers.Builder builder = new Headers.Builder();
+//                AppAccessToken appAccessToken = application.getUserManager().getAppAuthorization(application);
+//                if (appAccessToken != null) {
+//                    builder.add("Authorization", appAccessToken.getTokenType() + " " + appAccessToken.getAccessToken());
+//                }
                 Headers headers = builder.build();
                 Request original = chain.request();
                 Request request = original.newBuilder()
